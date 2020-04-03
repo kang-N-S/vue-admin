@@ -53,7 +53,20 @@ module.exports = {
 
     //  调整内部的 webpack 配置
 
-    configureWebpack: () => { }, //(Object | Function)
+    configureWebpack: (config) => {//配置别名
+        config.resolve={
+            extensions:['.js','.json','.vue'],//自动添加后缀名
+            alias:{
+                '@':path.resolve(__dirname,'./src'),
+                'public':path.resolve(__dirname,'./public'),
+                'components':path.resolve(__dirname,'./src/components'),
+                'common':path.resolve(__dirname,'./src/common'),
+                'api':path.resolve(__dirname,'./src/api'),
+                'views':path.resolve(__dirname,'./src/views'),
+                'data':path.resolve(__dirname,'./src/data'),
+            }
+        }
+     }, //(Object | Function)
 
     chainWebpack: () => { },
 
